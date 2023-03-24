@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Asif</string>
+    <string name="choose_context">Contexte</string>
+    <string name="choose_status">Statut</string>
+    <string name="scrollview_name">New task scrollview</string>
+</resources>

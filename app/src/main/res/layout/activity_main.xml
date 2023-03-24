@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4f4"
+    android:orientation="vertical">
+
+    <!-- Bannière en haut de l'écran avec une image et un bouton + -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#31d198"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:src="@drawable/logo" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/newTaskBtn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:text="+"
+            android:backgroundTint="#ffffff"
+            android:textColor="#31d198"
+            android:textSize="30dp"/>
+
+
+    </LinearLayout>
+
+
+    <!-- Liste de tâches à faire -->
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:id="@+id/layoutButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:padding="12dp"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Plus récent"
+                android:singleLine="true"
+                android:textColor="#FFFFFF"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Plus urgent"
+                android:textColor="#FFFFFF"
+                android:singleLine="true"
+                android:layout_marginLeft="14dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Par contexte"
+                android:textColor="#FFFFFF"
+                android:singleLine="true"
+                android:layout_marginLeft="14dp"/>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+
+</LinearLayout>
