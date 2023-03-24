@@ -7,20 +7,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.asif.R;
-import com.example.asif.Task;
-import com.example.asif.UrlWebView;
+import com.example.asif.utils.TaskUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class Adapter extends BaseAdapter {
     private List<Task> listTask;
     private Context context; //état courant de l'application
     private LayoutInflater inflater;
+
+    TextView titleTask;
+    TextView durationTask;
+    TextView startDateTask;
+    TextView descriptionTask;
+    TextView contextTask;
+    TextView statusTask;
+    TextView urlTask;
+    Button buttonGo;
+    Button buttonEdit;
+    Button buttonRemove;
+
 
     public Adapter(Context context, List<Task> listTask) {
         this.context = context;
@@ -51,21 +61,26 @@ public class Adapter extends BaseAdapter {
             view = (View) convertView;
         }
 
-        TextView titleTask = (TextView) view.findViewById(R.id.taskTitleText);
-        TextView durationTask = (TextView) view.findViewById(R.id.taskDurationValueText);
-        TextView startDateTask = (TextView) view.findViewById(R.id.taskDateValueText);
-        TextView descriptionTask = (TextView) view.findViewById(R.id.taskDescriptionText);
-        TextView contextTask = (TextView) view.findViewById(R.id.taskContextText);
-        TextView statusTask = (TextView) view.findViewById(R.id.taskStatusText);
-        TextView urlTask = (TextView) view.findViewById(R.id.taskUrlValueText);
-        Button buttonGo = (Button) view.findViewById(R.id.taskUrlButton);
-        Button buttonEdit = (Button) view.findViewById(R.id.taskEditButton);
-        Button buttonRemove = (Button) view.findViewById(R.id.taskRemoveButton);
+        titleTask = (TextView) view.findViewById(R.id.taskTitleText);
+        durationTask = (TextView) view.findViewById(R.id.taskDurationValueText);
+        startDateTask = (TextView) view.findViewById(R.id.taskDateValueText);
+        descriptionTask = (TextView) view.findViewById(R.id.taskDescriptionText);
+        contextTask = (TextView) view.findViewById(R.id.taskContextText);
+        statusTask = (TextView) view.findViewById(R.id.taskStatusText);
+        urlTask = (TextView) view.findViewById(R.id.taskUrlValueText);
+        buttonGo = (Button) view.findViewById(R.id.taskUrlButton);
+        buttonEdit = (Button) view.findViewById(R.id.taskEditButton);
+        buttonRemove = (Button) view.findViewById(R.id.taskRemoveButton);
 
         //modification des vues
         titleTask.setText(listTask.get(position).getTitle());
-        durationTask.setText(listTask.get(position).getDuration().toString());
-        startDateTask.setText(listTask.get(position).getStartDate().toString());
+        durationTask.setText(listTask.get(position).getDurationInDays() + " jours");
+
+        // Formater la date au format "dd/MM/yyyy"
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String dateString = dateFormat.format(listTask.get(position).getStartDate());
+        startDateTask.setText(dateString);
+
         descriptionTask.setText(listTask.get(position).getDescription());
         contextTask.setText(listTask.get(position).getContext());
         statusTask.setText(listTask.get(position).getStatus());
@@ -75,9 +90,9 @@ public class Adapter extends BaseAdapter {
         buttonGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Code à exécuter lorsque le bouton est cliqué
-
-
+                Intent intent = new Intent(context, UrlWebView.class);
+                intent.putExtra("url", getUrlTask());
+                context.startActivity(intent);
             }
         });
 
@@ -95,14 +110,17 @@ public class Adapter extends BaseAdapter {
         buttonRemove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Code à exécuter lorsque le bouton est cliqué
-
-
+                System.out.println(listTask.get(position).getTitle());
+                System.out.println(TaskUtils.removeTaskFromJsonFile(context, listTask.get(position).getId()));
             }
         });
 
         //retourne vue créée
         return view;
+    }
+
+    String getUrlTask (){
+        return this.urlTask.getText().toString();
     }
 
 }

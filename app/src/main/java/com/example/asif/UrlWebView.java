@@ -13,7 +13,6 @@ import android.widget.Button;
 public class UrlWebView extends Activity implements View.OnClickListener{
 
     Button accueilBtn;
-
     WebView webview;
 
     @SuppressLint("JavascriptInterface")
@@ -22,6 +21,9 @@ public class UrlWebView extends Activity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_url_webview);
 
+        //récupérer l'url
+        String url = getIntent().getStringExtra("url");
+
         //gérer la webview
         webview = (WebView) findViewById(R.id.urlWebView);
         WebSettings params = webview.getSettings();
@@ -29,6 +31,8 @@ public class UrlWebView extends Activity implements View.OnClickListener{
         params.setBuiltInZoomControls(true);
         webview.addJavascriptInterface(new WebAppInterface(this), "Android");
         webview.setWebViewClient(new MyWebViewClient());
+
+        webview.loadUrl(url);
 
         //gérer bouton menu
         accueilBtn = (Button)findViewById(R.id.button);

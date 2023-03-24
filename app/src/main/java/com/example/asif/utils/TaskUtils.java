@@ -52,6 +52,43 @@ public class TaskUtils {
     }
 
     /**
+     * Removes a task from the JSON file. Returns true if successful, false otherwise.
+     */
+    public static boolean removeTaskFromJsonFile(Context context, String idTask) {
+        try {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            File file = new File(context.getFilesDir(), FILE_NAME);
+
+            // Create the file if it doesn't exist
+            if (!file.exists()) {
+                Log.e(TAG,"JSON File doesn't exist");
+                return false;
+            }else{
+                // Read the existing tasks from the file
+                ArrayList<Task> tasks = readTasksFromJsonFile(context);
+
+                // Remove the task from the list of tasks
+                for(Task task : tasks) {
+                    if(task.getId().equals(idTask)){
+                        tasks.remove(task);
+                    }
+                }
+
+                // Write the updated task list to the file
+                BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+                gson.toJson(tasks, writer);
+                writer.close();
+
+                return true;
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error removing task from JSON file: " + e.getMessage());
+            return false;
+        }
+    }
+
+
+    /**
      * Reads tasks from a JSON file and returns them as an ArrayList. Returns an empty ArrayList if the file does not exist.
      */
     public static ArrayList<Task> readTasksFromJsonFile(Context context) {
@@ -80,4 +117,36 @@ public class TaskUtils {
             return new ArrayList<>();
         }
     }
+
+    /**
+     * Removes all task from the JSON file. Returns true if successful, false otherwise.
+     */
+    public static boolean removeAllTaskFromJsonFile(Context context) {
+        try {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            File file = new File(context.getFilesDir(), FILE_NAME);
+
+            // Create the file if it doesn't exist
+            if (!file.exists()) {
+                Log.e(TAG,"JSON File doesn't exist");
+                return false;
+            }else{
+                // Read the existing tasks from the file
+                ArrayList<Task> tasks = new ArrayList<>();
+
+                // Write the updated task list to the file
+                BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+                gson.toJson(tasks, writer);
+                writer.close();
+
+                return true;
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Error removing task from JSON file: " + e.getMessage());
+            return false;
+        }
+    }
+
+
+
 }

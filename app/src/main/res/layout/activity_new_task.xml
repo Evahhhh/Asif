@@ -86,6 +86,8 @@
                     android:id="@+id/startDate_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#31d198"
+                    android:textColor="#FFFFFF"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:text="Sélectionner une date" />
@@ -106,6 +108,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    android:backgroundTint="#31d198"
+                    android:textColor="#FFFFFF"
                     android:text="Sélectionner une date" />
 
 
@@ -125,6 +129,8 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    android:backgroundTint="#31d198"
+                    android:textColor="#FFFFFF"
                     android:text="Voir l'URL" />
 
         </LinearLayout>
@@ -149,13 +155,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
+                android:backgroundTint="#31d198"
+                android:textColor="#FFFFFF"
                 android:text="Ajouter la tâche" />
 
             <Button
                 android:id="@+id/buttonCancel"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
+                android:backgroundTint="#9D0A00"
+                android:textColor="#FFFFFF"
                 android:text="Annuler" />
 
         </LinearLayout>

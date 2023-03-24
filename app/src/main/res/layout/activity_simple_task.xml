@@ -146,6 +146,8 @@
                     android:id="@+id/taskUrlButton"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#31d198"
+                    android:textColor="#FFFFFF"
                     android:text="Go" />
 
             </LinearLayout>
@@ -155,13 +157,16 @@
             android:id="@+id/taskEditButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#31d198"
+            android:textColor="#FFFFFF"
             android:text="Modifier" />
 
         <Button
             android:id="@+id/taskRemoveButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#6d071a"
+            android:backgroundTint="#9D0A00"
+            android:textColor="#FFFFFF"
             android:text="Supprimer" />
 
     </LinearLayout>
