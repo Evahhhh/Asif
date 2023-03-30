@@ -3,6 +3,8 @@ package com.example.asif;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -53,6 +55,13 @@ public class UpdateTask extends Activity implements View.OnClickListener {
         this.task = (Task) getIntent().getSerializableExtra("task");
 
         buttonRemove = (Button) findViewById(R.id.buttonRemove);
+
+        if(taskIsDone() == false){
+            buttonRemove.setEnabled(false);
+        }else{
+            buttonRemove.setEnabled(true);
+        }
+
         buttonRemove.setOnClickListener(this);
 
         buttonUpdateTask = (Button) findViewById(R.id.buttonUpdateTask);
@@ -84,7 +93,7 @@ public class UpdateTask extends Activity implements View.OnClickListener {
         adapterStatus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerStatus.setAdapter(adapterStatus);
 
-        // SET LES TEXTES
+        // SET LES VALEURS PAR DEFAUT
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         this.title.setText(task.getTitle());
@@ -93,6 +102,8 @@ public class UpdateTask extends Activity implements View.OnClickListener {
         this.spinnerContext.setSelection(task.getContextIndex());
         this.startDateTextView.setText("Date de début : " + dateFormat.format(task.getStartDate()));
         this.endDateTextView.setText("Date de fin : " + dateFormat.format(task.getEndDate()));
+        this.startDate = task.getStartDate();
+        this.endDate = task.getEndDate();
         this.url.setText(task.getUrl());
     }
 
@@ -107,7 +118,6 @@ public class UpdateTask extends Activity implements View.OnClickListener {
         }else if(idChoosenBtn == R.id.buttonUpdateTask){
             //BOUTON MODIFIER
             if(this.title.getText().length() != 0 && this.description.getText().length() != 0 && this.url.getText().length() != 0 && this.startDate != null && this.endDate != null) {
-
                 // ajout du status
                 String status = this.spinnerStatus.getSelectedItem().toString();
                 if (!Task.isInAllStatus(status)) {
@@ -222,5 +232,20 @@ public class UpdateTask extends Activity implements View.OnClickListener {
 
     void setEndDate (Date newDate){
         this.endDate = newDate;
+    }
+
+    boolean taskIsDone(){
+        if(task.getStatus().equals("Terminé")){
+            int color = Color.parseColor("#9D0A00");
+            ColorStateList newColors = ColorStateList.valueOf(color);
+            buttonRemove.setBackgroundTintList(newColors);
+            return true;
+        }
+        else{
+            int color = Color.parseColor("#C4C4C4");
+            ColorStateList newColors = ColorStateList.valueOf(color);
+            buttonRemove.setBackgroundTintList(newColors);
+            return false;
+        }
     }
 }
