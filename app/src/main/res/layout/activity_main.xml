@@ -64,7 +64,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="#31d198"
                 android:singleLine="true"
-                android:text="Par Statut"
+                android:text="By status"
                 android:textColor="#FFFFFF" />
 
             <Button
@@ -75,7 +75,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="#31d198"
                 android:singleLine="true"
-                android:text="Plus urgent"
+                android:text="More urgent"
                 android:textColor="#FFFFFF" />
 
             <Button
@@ -86,7 +86,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="#31d198"
                 android:singleLine="true"
-                android:text="Par contexte"
+                android:text="By context"
                 android:textColor="#FFFFFF" />
 
         </LinearLayout>

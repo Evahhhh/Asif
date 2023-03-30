@@ -29,7 +29,7 @@
                     android:id="@+id/taskTitleText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Titre de la tâche"
+                    android:text="Task's title"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
 
@@ -45,7 +45,7 @@
                     android:id="@+id/taskStatusText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Statut"
+                    android:text="State"
                     android:textSize="14sp"
                     android:textColor="#777777"
                     android:textStyle="bold"/>
@@ -57,7 +57,7 @@
             android:id="@+id/taskContextText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Contexte de la tâche"
+            android:text="Task's context"
             android:textSize="14sp"
             android:textColor="#777777"
             android:layout_marginTop="8dp"
@@ -67,7 +67,7 @@
             android:id="@+id/taskDescriptionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description de la tâche"
+            android:text="Task's description"
             android:textSize="14sp"
             android:textColor="#777777"/>
 
@@ -81,21 +81,21 @@
                 android:id="@+id/taskDurationText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Durée : "
+                android:text="Duration : "
                 android:textSize="12sp"/>
 
             <TextView
                 android:id="@+id/taskDurationValueText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2 jours"
+                android:text="2 days"
                 android:textSize="12sp"/>
 
             <TextView
                 android:id="@+id/taskDateText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date de début : "
+                android:text="Start date : "
                 android:textSize="12sp"
                 android:layout_marginLeft="16dp"/>
 
@@ -125,14 +125,14 @@
                     android:id="@+id/taskUrlText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Site web : "
+                    android:text="Website : "
                     android:textSize="12sp"/>
 
                 <TextView
                     android:id="@+id/taskUrlValueText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="www.monsite.com"
+                    android:text="www.mywebsite.com"
                     android:textSize="12sp"/>
 
             </LinearLayout>
@@ -159,7 +159,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#31d198"
             android:textColor="#FFFFFF"
-            android:text="Modifier" />
+            android:text="Update" />
 
     </LinearLayout>
 </LinearLayout>

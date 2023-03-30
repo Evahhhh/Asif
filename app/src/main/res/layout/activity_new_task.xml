@@ -33,7 +33,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    android:text="Nouvelle tâche"
+                    android:text="New task"
                     android:textSize="20dp" />
 
                 <EditText
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:hint="Titre"
+                    android:hint="Title"
                     android:paddingTop="20dp" />
 
                 <EditText
@@ -79,7 +79,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:paddingTop="20dp"
-                    android:text="Choisissez une date de début" />
+                    android:text="Choose a start date" />
 
 
                 <Button
@@ -90,7 +90,7 @@
                     android:textColor="#FFFFFF"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="Sélectionner une date" />
+                    android:text="Select a date" />
 
 
                 <TextView
@@ -100,7 +100,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:paddingTop="20dp"
-                    android:text="Choisissez une date de fin" />
+                    android:text="Choose an end date" />
 
                 <Button
                     android:id="@+id/endDate_button"
@@ -110,7 +110,7 @@
                     android:layout_marginEnd="16dp"
                     android:backgroundTint="#31d198"
                     android:textColor="#FFFFFF"
-                    android:text="Sélectionner une date" />
+                    android:text="Select a date" />
 
 
                 <EditText
@@ -131,7 +131,7 @@
                     android:layout_marginEnd="16dp"
                     android:backgroundTint="#31d198"
                     android:textColor="#FFFFFF"
-                    android:text="Voir l'URL" />
+                    android:text="Check the url" />
 
         </LinearLayout>
     </ScrollView>
@@ -157,7 +157,7 @@
                 android:layout_marginEnd="8dp"
                 android:backgroundTint="#31d198"
                 android:textColor="#FFFFFF"
-                android:text="Ajouter la tâche" />
+                android:text="Add the task" />
 
             <Button
                 android:id="@+id/buttonCancel"
@@ -166,7 +166,7 @@
                 android:layout_marginStart="8dp"
                 android:backgroundTint="#9D0A00"
                 android:textColor="#FFFFFF"
-                android:text="Annuler" />
+                android:text="Cancel" />
 
         </LinearLayout>
     </LinearLayout>

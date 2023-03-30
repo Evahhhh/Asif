@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Accueil"
+        android:text="Home"
         android:paddingHorizontal="50dp"
         android:backgroundTint="#31d198"
         android:textColor="#FFFFFF"

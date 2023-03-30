@@ -72,7 +72,7 @@ public class Adapter extends BaseAdapter {
 
         //modification des vues
         titleTask.setText(listTask.get(position).getTitle());
-        durationTask.setText(listTask.get(position).getDurationInDays() + " jours");
+        durationTask.setText(listTask.get(position).getDurationInDays() + " days");
 
         // Formater la date au format "dd/MM/yyyy"
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");

@@ -100,8 +100,8 @@ public class UpdateTask extends Activity implements View.OnClickListener {
         this.description.setText(task.getDescription());
         this.spinnerStatus.setSelection(task.getStatusIndex());
         this.spinnerContext.setSelection(task.getContextIndex());
-        this.startDateTextView.setText("Date de début : " + dateFormat.format(task.getStartDate()));
-        this.endDateTextView.setText("Date de fin : " + dateFormat.format(task.getEndDate()));
+        this.startDateTextView.setText("Start date : " + dateFormat.format(task.getStartDate()));
+        this.endDateTextView.setText("End date : " + dateFormat.format(task.getEndDate()));
         this.startDate = task.getStartDate();
         this.endDate = task.getEndDate();
         this.url.setText(task.getUrl());
