@@ -58,33 +58,36 @@
             android:layout_alignParentBottom="true">
 
             <Button
+                android:id="@+id/statusBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:text="Plus récent"
-                android:singleLine="true"
                 android:backgroundTint="#31d198"
-                android:textColor="#FFFFFF"/>
+                android:singleLine="true"
+                android:text="Par Statut"
+                android:textColor="#FFFFFF" />
 
             <Button
+                android:id="@+id/mostUrgentBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:layout_marginLeft="14dp"
                 android:layout_weight="1"
+                android:backgroundTint="#31d198"
+                android:singleLine="true"
                 android:text="Plus urgent"
-                android:textColor="#FFFFFF"
-                android:singleLine="true"
-                android:backgroundTint="#31d198"
-                android:layout_marginLeft="14dp"/>
+                android:textColor="#FFFFFF" />
 
             <Button
+                android:id="@+id/contextBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:layout_marginLeft="14dp"
                 android:layout_weight="1"
-                android:text="Par contexte"
-                android:textColor="#FFFFFF"
                 android:backgroundTint="#31d198"
                 android:singleLine="true"
-                android:layout_marginLeft="14dp"/>
+                android:text="Par contexte"
+                android:textColor="#FFFFFF" />
 
         </LinearLayout>
     </HorizontalScrollView>
