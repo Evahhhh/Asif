@@ -161,13 +161,5 @@
             android:textColor="#FFFFFF"
             android:text="Modifier" />
 
-        <Button
-            android:id="@+id/taskRemoveButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#9D0A00"
-            android:textColor="#FFFFFF"
-            android:text="Supprimer" />
-
     </LinearLayout>
 </LinearLayout>

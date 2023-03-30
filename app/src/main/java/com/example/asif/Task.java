@@ -5,6 +5,7 @@ import android.widget.Toast;
 import com.example.asif.utils.UUIDUtils;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.Duration;
@@ -12,7 +13,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Task {
+public class Task implements Serializable {
     private String id;
     private String title;
     private String description;

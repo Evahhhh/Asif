@@ -23,6 +23,7 @@
         <activity android:name=".NewTask" />
         <activity android:name=".Task" />
         <activity android:name=".UrlWebView" />
+        <activity android:name=".UpdateTask" />
         <activity android:name=".Adapter" />
     </application>
     <uses-permission android:name="android.permission.INTERNET" />

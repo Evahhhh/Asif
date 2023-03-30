@@ -29,7 +29,6 @@ public class Adapter extends BaseAdapter {
     TextView urlTask;
     Button buttonGo;
     Button buttonEdit;
-    Button buttonRemove;
 
 
     public Adapter(Context context, List<Task> listTask) {
@@ -70,7 +69,6 @@ public class Adapter extends BaseAdapter {
         urlTask = (TextView) view.findViewById(R.id.taskUrlValueText);
         buttonGo = (Button) view.findViewById(R.id.taskUrlButton);
         buttonEdit = (Button) view.findViewById(R.id.taskEditButton);
-        buttonRemove = (Button) view.findViewById(R.id.taskRemoveButton);
 
         //modification des vues
         titleTask.setText(listTask.get(position).getTitle());
@@ -101,17 +99,9 @@ public class Adapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 // Code à exécuter lorsque le bouton est cliqué
-
-
-            }
-        });
-
-        //gérer le bouton suppression
-        buttonRemove.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.println(listTask.get(position).getTitle());
-                System.out.println(TaskUtils.removeTaskFromJsonFile(context, listTask.get(position).getId()));
+                Intent intent = new Intent(context, UpdateTask.class);
+                intent.putExtra("task", listTask.get(position));
+                context.startActivity(intent);
             }
         });
 
