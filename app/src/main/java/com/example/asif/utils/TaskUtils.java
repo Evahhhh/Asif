@@ -147,6 +147,48 @@ public class TaskUtils {
         }
     }
 
+    /**
+     * Modifie une tâche existante dans le fichier JSON en utilisant son ID unique.
+     *
+     * @param context      Le contexte de l'application.
+     * @param modifiedTask La tâche modifiée à écrire dans le fichier JSON.
+     * @return true si la tâche a été modifiée avec succès, false sinon.
+     */
+    public static boolean modifyTaskInJsonFile(Context context, Task modifiedTask) {
+        try {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            File file = new File(context.getFilesDir(), FILE_NAME);
+
+            // Create the file if it doesn't exist
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            // Read the existing tasks from the file
+            ArrayList<Task> tasks = readTasksFromJsonFile(context);
+
+            // Find the task to modify in the list of tasks using its unique ID
+            for (int i = 0; i < tasks.size(); i++) {
+                Task task = tasks.get(i);
+                if (task.getId().equals(modifiedTask.getId())) {
+                    tasks.set(i, modifiedTask);
+                    break;
+                }
+            }
+
+            // Write the updated task list to the file
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            gson.toJson(tasks, writer);
+            writer.close();
+
+            return true;
+        } catch (Exception e) {
+            Log.e(TAG, "Error modifying task in JSON file: " + e.getMessage());
+            return false;
+        }
+    }
+
+
 
 
 }

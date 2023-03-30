@@ -40,13 +40,9 @@ public class Task implements Serializable {
                     this.description = description;
                     this.startDate = startDate;
                     this.endDate = endDate;
-                    System.out.println("start date striiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiing" + this.startDate);
-                    System.out.println("end date striiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiing" + this.endDate);
                     this.duration = computeDuration(startDate, endDate);
                     //assigner l'id
                     this.id = UUIDUtils.getNewId().toString();
-
-                    System.out.println("duraaaaaaaaaaaation striiiiiiiing" + getDurationInDays());
                 }
                 else System.err.println("Task : constructor : param status is not in AllStatus list");
             }
@@ -134,12 +130,25 @@ public class Task implements Serializable {
         }
     }
 
-    public Duration getDuration(){
-        return this.duration;
+    public int getStatusIndex(){
+        switch(this.status){
+            case "TODO":
+                return 0;
+            case "DOING":
+                return 1;
+            case "DONE":
+                return 2;
+            default:
+                throw new IllegalArgumentException("Unknown activity type: " + this);
+        }
     }
 
     public Date getStartDate(){
         return this.startDate;
+    }
+
+    public Date getEndDate(){
+        return this.endDate;
     }
 
     public String getContext() {
@@ -163,6 +172,27 @@ public class Task implements Serializable {
         }
     }
 
+    public int getContextIndex() {
+        switch(this.context){
+            case "HOUSEHOLD":
+                return 0;
+            case "WORK":
+                return 1;
+            case "SCHOOL":
+                return 2;
+            case "SPARETIME":
+                return 3;
+            case "FAMILY":
+                return 4;
+            case "FRIENDS":
+                return 5;
+            case "OTHER":
+                return 6;
+            default:
+                throw new IllegalArgumentException("Unknown activity type: " + this);
+        }
+    }
+
     public String getUrl() {
         return url;
     }
@@ -179,14 +209,22 @@ public class Task implements Serializable {
         else System.err.println("Task : setDescription : newDescription is null");
     }
 
-    public void setDuration(Duration newDuration){
-        if(newDuration != null) this.duration = newDuration;
-        else System.err.println("Task : setDuration : newDuration is null");
+    public void setDuration(Date startDate, Date endDate){
+        if(startDate != null && endDate != null){
+            Duration newDuration = computeDuration(startDate, endDate);
+            this.duration = newDuration;
+        }
+        else System.err.println("Task : setDuration : startDate or endDate is null");
     }
 
     public void setStartDate(Date newStartDate){
         if(newStartDate != null) this.startDate = newStartDate;
         else System.err.println("Task : setStartDate : newStartDate is null");
+    }
+
+    public void setEndDate(Date newEndDate){
+        if(newEndDate != null) this.endDate = newEndDate;
+        else System.err.println("Task : setEndDate : newEndDate is null");
     }
 
     public void setContext(String newContext){
