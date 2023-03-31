@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="#f4f4f4"
     android:layout_height="match_parent">
 
 
@@ -34,6 +35,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:text="Update task"
+                    android:textColor="#757575"
                     android:textSize="20dp" />
 
                 <EditText
@@ -43,6 +45,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:hint="Title"
+                    android:textColor="#757575"
                     android:paddingTop="20dp" />
 
                 <EditText
@@ -52,6 +55,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:hint="Description"
+                    android:textColor="#757575"
                     android:paddingTop="20dp" />
 
                 <Spinner
@@ -60,6 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    android:textColor="#757575"
                     android:entries="@array/status_array"
                     android:paddingTop="40dp" />
 
@@ -70,13 +75,15 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:entries="@array/context_array"
-                    android:paddingTop="40dp" />
+                    android:paddingTop="40dp"
+                    android:textColor="#000000" />
 
                 <TextView
                     android:id="@+id/startDate_textview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:textColor="#757575"
                     android:layout_marginEnd="16dp"
                     android:paddingTop="20dp"
                     android:text="Choose a start date" />
@@ -99,6 +106,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    android:textColor="#757575"
                     android:paddingTop="20dp"
                     android:text="Choose an end date" />
 
@@ -117,6 +125,7 @@
                     android:id="@+id/editTextUrl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="#757575"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:hint="URL"
