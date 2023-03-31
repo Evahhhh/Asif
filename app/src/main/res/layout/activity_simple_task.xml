@@ -31,6 +31,7 @@
                     android:layout_height="wrap_content"
                     android:text="Task's title"
                     android:textSize="16sp"
+                    android:textColor="#757575"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -47,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:text="State"
                     android:textSize="14sp"
-                    android:textColor="#777777"
+                    android:textColor="#757575"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -59,7 +60,7 @@
             android:layout_height="wrap_content"
             android:text="Task's context"
             android:textSize="14sp"
-            android:textColor="#777777"
+            android:textColor="#757575"
             android:layout_marginTop="8dp"
             android:textStyle="bold"/>
 
@@ -69,7 +70,7 @@
             android:layout_height="wrap_content"
             android:text="Task's description"
             android:textSize="14sp"
-            android:textColor="#777777"/>
+            android:textColor="#757575"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -81,6 +82,7 @@
                 android:id="@+id/taskDurationText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#757575"
                 android:text="Duration : "
                 android:textSize="12sp"/>
 
@@ -88,6 +90,7 @@
                 android:id="@+id/taskDurationValueText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#757575"
                 android:text="2 days"
                 android:textSize="12sp"/>
 
@@ -96,6 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Start date : "
+                android:textColor="#757575"
                 android:textSize="12sp"
                 android:layout_marginLeft="16dp"/>
 
@@ -103,6 +107,7 @@
                 android:id="@+id/taskDateValueText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#757575"
                 android:text="15/03/2023"
                 android:textSize="12sp"/>
 
@@ -126,6 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Website : "
+                    android:textColor="#757575"
                     android:textSize="12sp"/>
 
                 <TextView
@@ -133,6 +139,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="www.mywebsite.com"
+                    android:textColor="#757575"
                     android:textSize="12sp"/>
 
             </LinearLayout>

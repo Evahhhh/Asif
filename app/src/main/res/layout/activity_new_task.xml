@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="#f4f4f4f4"
     android:layout_height="match_parent">
 
 
@@ -32,6 +33,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="16dp"
+                    android:textColor="#757575"
                     android:layout_marginBottom="16dp"
                     android:text="New task"
                     android:textSize="20dp" />
@@ -41,6 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:textColor="#757575"
                     android:layout_marginEnd="16dp"
                     android:hint="Title"
                     android:paddingTop="20dp" />
@@ -51,6 +54,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    android:textColor="#757575"
                     android:hint="Description"
                     android:paddingTop="20dp" />
 
@@ -78,6 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    android:textColor="#757575"
                     android:paddingTop="20dp"
                     android:text="Choose a start date" />
 
@@ -95,6 +100,7 @@
 
                 <TextView
                     android:id="@+id/endDate_textview"
+                    android:textColor="#757575"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -118,6 +124,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:textColor="#757575"
                     android:layout_marginEnd="16dp"
                     android:hint="URL"
                     android:paddingTop="20dp" />
