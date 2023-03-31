@@ -29,6 +29,7 @@ public class UrlWebView extends Activity implements View.OnClickListener{
         WebSettings params = webview.getSettings();
         params.setJavaScriptEnabled(true);
         params.setBuiltInZoomControls(true);
+        params.setSupportZoom(true);
         webview.addJavascriptInterface(new WebAppInterface(this), "Android");
         webview.setWebViewClient(new MyWebViewClient());
 
