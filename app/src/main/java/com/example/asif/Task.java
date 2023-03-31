@@ -120,11 +120,11 @@ public class Task implements Serializable {
     public String getStatus(){
         switch(this.status){
             case "TODO":
-                return "A faire";
+                return "To do";
             case "DOING":
-                return "En cours";
+                return "Doing";
             case "DONE":
-                return "Terminé";
+                return "Done";
             default:
                 throw new IllegalArgumentException("Unknown activity type: " + this);
         }
@@ -154,19 +154,19 @@ public class Task implements Serializable {
     public String getContext() {
         switch(this.context){
             case "HOUSEHOLD":
-                return "Ménage";
+                return "Household";
             case "WORK":
-                return "Travail";
+                return "Work";
             case "SCHOOL":
-                return "École";
+                return "School";
             case "SPARETIME":
-                return "Temps libre";
+                return "Spare time";
             case "FAMILY":
-                return "Famille";
+                return "Family";
             case "FRIENDS":
-                return "Amis";
+                return "Friends";
             case "OTHER":
-                return "Autre";
+                return "Other";
             default:
                 throw new IllegalArgumentException("Unknown activity type: " + this);
         }

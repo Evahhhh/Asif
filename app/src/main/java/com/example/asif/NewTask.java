@@ -176,18 +176,17 @@ public class NewTask extends Activity implements View.OnClickListener{
                 String status = this.spinnerStatus.getSelectedItem().toString();
                 if(!Task.isInAllStatus(status)){
                     this.canAdd = false;
-                    Toast.makeText(this,"Le statut n'est pas accepté", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"State isn't accepted", Toast.LENGTH_SHORT).show();
                 }
 
                 // ajout du contexte
                 String context = this.spinnerContext.getSelectedItem().toString();
                 if(!Task.isInAllContext(context)){
                     this.canAdd = false;
-                    Toast.makeText(this,"Le contexte n'est pas accepté", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"Context isn't accepted", Toast.LENGTH_SHORT).show();
                 }else if(this.endDate.compareTo(startDate) == -1 || this.endDate.compareTo(startDate) == 0){
-                    System.out.println("COMPARTE / " + this.endDate.compareTo(startDate));
                     this.canAdd = false;
-                    Toast.makeText(this,"La date de fin doit être supérieure à la date de début", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"End date must be greater than start date", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -205,7 +204,7 @@ public class NewTask extends Activity implements View.OnClickListener{
 
 
             } else {
-                Toast.makeText(NewTask.this, "Veuillez remplir tous les champs", Toast.LENGTH_LONG).show();
+                Toast.makeText(NewTask.this, "Please complete all fields", Toast.LENGTH_LONG).show();
             }
 
         } else if (idChoosenBtn == R.id.buttonCancel) {

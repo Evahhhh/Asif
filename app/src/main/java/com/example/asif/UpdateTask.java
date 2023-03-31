@@ -122,18 +122,17 @@ public class UpdateTask extends Activity implements View.OnClickListener {
                 String status = this.spinnerStatus.getSelectedItem().toString();
                 if (!Task.isInAllStatus(status)) {
                     this.canUpdate = false;
-                    Toast.makeText(this, "Le statut n'est pas accepté", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "State isn't accepted", Toast.LENGTH_SHORT).show();
                 }
 
                 // ajout du contexte
                 String context = this.spinnerContext.getSelectedItem().toString();
                 if (!Task.isInAllContext(context)) {
                     this.canUpdate = false;
-                    Toast.makeText(this, "Le contexte n'est pas accepté", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Context isn't accepted", Toast.LENGTH_SHORT).show();
                 } else if (this.endDate.compareTo(startDate) == -1 || this.endDate.compareTo(startDate) == 0) {
-                    System.out.println("COMPARTE / " + this.endDate.compareTo(startDate));
                     this.canUpdate = false;
-                    Toast.makeText(this, "La date de fin doit être supérieure à la date de début", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "End date must be greater than start date", Toast.LENGTH_SHORT).show();
                 }
 
                 //Modifier la tâche et la stocker si tous les éléments sont bons
@@ -235,7 +234,7 @@ public class UpdateTask extends Activity implements View.OnClickListener {
     }
 
     boolean taskIsDone(){
-        if(task.getStatus().equals("Terminé")){
+        if(task.getStatus().equals("Done")){
             int color = Color.parseColor("#9D0A00");
             ColorStateList newColors = ColorStateList.valueOf(color);
             buttonRemove.setBackgroundTintList(newColors);
