@@ -11,7 +11,7 @@ public class TaskSorter {
         END_DATE
     }
 
-    public static void sortTasks(List<Task> tasks, SortType sortType) {
+    public static List<Task> sortTasks(List<Task> tasks, SortType sortType) {
         Comparator<Task> comparator = null;
         switch (sortType) {
             case CONTEXT:
@@ -27,5 +27,8 @@ public class TaskSorter {
                 throw new IllegalArgumentException("Invalid sort type: " + sortType);
         }
         tasks.sort(comparator);
+
+        return tasks;
+
     }
 }

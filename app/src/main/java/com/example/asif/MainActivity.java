@@ -18,6 +18,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
     Button mostUrgentBtn;
     Button contextBtn;
     ArrayList<Task> taskListArray;
+    Adapter adapter;
 
     @Override
     protected void onCreate(android.os.Bundle savedInstanceState){
@@ -44,7 +45,7 @@ public class MainActivity extends Activity implements View.OnClickListener{
         this.taskListArray = TaskUtils.readTasksFromJsonFile(this);
 
         //initalisation de l'adapter pour task
-        Adapter adapter = new Adapter(this, taskListArray);
+        this.adapter = new Adapter(this, taskListArray);
 
         //récupération listView
         ListView list = (ListView)findViewById(R.id.listView);
@@ -60,11 +61,14 @@ public class MainActivity extends Activity implements View.OnClickListener{
             Intent intent = new Intent(this, NewTask.class);
             startActivity(intent);
         } else if (idChosenBtn == R.id.statusBtn) {
-            TaskSorter.sortTasks(this.taskListArray, TaskSorter.SortType.STATUS);
+            this.taskListArray = (ArrayList<Task>) TaskSorter.sortTasks(this.taskListArray, TaskSorter.SortType.STATUS);
+            this.adapter.notifyDataSetChanged();
         } else if (idChosenBtn == R.id.mostUrgentBtn) {
-            TaskSorter.sortTasks(this.taskListArray, TaskSorter.SortType.END_DATE);
+            this.taskListArray = (ArrayList<Task>) TaskSorter.sortTasks(this.taskListArray, TaskSorter.SortType.END_DATE);
+            this.adapter.notifyDataSetChanged();
         } else if (idChosenBtn == R.id.contextBtn) {
-            TaskSorter.sortTasks(this.taskListArray, TaskSorter.SortType.CONTEXT);
+            this.taskListArray = (ArrayList<Task>) TaskSorter.sortTasks(this.taskListArray, TaskSorter.SortType.CONTEXT);
+            this.adapter.notifyDataSetChanged();
         }
     }
 
