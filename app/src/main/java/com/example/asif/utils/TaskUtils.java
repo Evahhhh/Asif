@@ -16,12 +16,19 @@ import java.io.FileWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**
+ * This class contains utility methods for working with tasks.
+ */
 public class TaskUtils {
     private static final String TAG = "TaskUtils";
     private static final String FILE_NAME = "tasks.json";
 
     /**
      * Writes a single task to a JSON file. Returns true if successful, false otherwise.
+     *
+     * @param context The application context.
+     * @param task The task to be written to the JSON file.
+     * @return true if the task was successfully written to the JSON file, false otherwise.
      */
     public static boolean writeTaskToJsonFile(Context context, Task task) {
         try {
@@ -53,6 +60,10 @@ public class TaskUtils {
 
     /**
      * Removes a task from the JSON file. Returns true if successful, false otherwise.
+     *
+     * @param context The application context.
+     * @param idTask The unique ID of the task to be removed.
+     * @return true if the task was successfully removed from the JSON file, false otherwise.
      */
     public static boolean removeTaskFromJsonFile(Context context, String idTask) {
         try {
@@ -90,6 +101,9 @@ public class TaskUtils {
 
     /**
      * Reads tasks from a JSON file and returns them as an ArrayList. Returns an empty ArrayList if the file does not exist.
+     *
+     * @param context The application context.
+     * @return an ArrayList of tasks read from the JSON file.
      */
     public static ArrayList<Task> readTasksFromJsonFile(Context context) {
         try {
@@ -119,7 +133,9 @@ public class TaskUtils {
     }
 
     /**
-     * Removes all task from the JSON file. Returns true if successful, false otherwise.
+     * Removes all tasks from the JSON file. Returns true if successful, false otherwise.
+     * @param context The application context.
+     * @return true if all tasks have been removed successfully, false otherwise.
      */
     public static boolean removeAllTaskFromJsonFile(Context context) {
         try {
@@ -148,11 +164,10 @@ public class TaskUtils {
     }
 
     /**
-     * Modifie une tâche existante dans le fichier JSON en utilisant son ID unique.
-     *
-     * @param context      Le contexte de l'application.
-     * @param modifiedTask La tâche modifiée à écrire dans le fichier JSON.
-     * @return true si la tâche a été modifiée avec succès, false sinon.
+     * Modifies an existing task in the JSON file using its unique ID.
+     * @param context The application context.
+     * @param modifiedTask The modified task to write to the JSON file.
+     * @return true if the task has been modified successfully, false otherwise.
      */
     public static boolean modifyTaskInJsonFile(Context context, Task modifiedTask) {
         try {
@@ -187,8 +202,4 @@ public class TaskUtils {
             return false;
         }
     }
-
-
-
-
 }

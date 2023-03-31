@@ -10,22 +10,30 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 
-public class UrlWebView extends Activity implements View.OnClickListener{
+/**
+ * This class is responsible for displaying a web page in a WebView.
+ */
+public class UrlWebView extends Activity implements View.OnClickListener {
 
-    Button accueilBtn;
-    WebView webview;
+    private Button accueilBtn;
+    private WebView webview;
 
+    /**
+     * Sets up the WebView and loads the URL passed as an Intent extra.
+     *
+     * @param savedInstanceState The saved instance state.
+     */
     @SuppressLint("JavascriptInterface")
     @Override
     protected void onCreate(android.os.Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_url_webview);
 
-        //récupérer l'url
+        // Get the URL
         String url = getIntent().getStringExtra("url");
 
-        //gérer la webview
-        webview = (WebView) findViewById(R.id.urlWebView);
+        // Set up the WebView
+        webview = findViewById(R.id.urlWebView);
         WebSettings params = webview.getSettings();
         params.setJavaScriptEnabled(true);
         params.setBuiltInZoomControls(true);
@@ -35,8 +43,8 @@ public class UrlWebView extends Activity implements View.OnClickListener{
 
         webview.loadUrl(url);
 
-        //gérer bouton menu
-        accueilBtn = (Button)findViewById(R.id.button);
+        // Set up the menu button
+        accueilBtn = findViewById(R.id.button);
         accueilBtn.setOnClickListener(this);
 
     }
@@ -47,18 +55,20 @@ public class UrlWebView extends Activity implements View.OnClickListener{
         startActivity(intent);
     }
 
-    //Classe privée permettant de redéfinir un client webview
+    /**
+     * A private class that extends WebViewClient and allows us to handle new URLs in the
+     * current WebView.
+     */
     private class MyWebViewClient extends WebViewClient {
-        /*
-         * Avec ce mécanisme nous permettons à l'application de prendre en charge
-         * une nouvelle url dans la webview actuelle
+
+        /**
+         * This method allows us to handle new URLs in the current WebView. If the WebViewClient
+         * is not available in the Activity, the Activity Manager will prompt the user to choose
+         * an available application to handle the URL.
          *
-         * Si WebViewClient n'est pas disponible dans l'activité, l'activity manager
-         * demandera à l'utilisateur de choisir une application disponible pour
-         * traiter l'url
-         *
-         * Ainsi le retour de la méthode permet de préciser si on prend
-         * en charge l'url apssée (true) ou non (false)
+         * @param view The WebView that is initiating the callback.
+         * @param url The URL that is being loaded.
+         * @return True if the URL is handled by the WebView, false otherwise.
          */
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url){
@@ -67,22 +77,24 @@ public class UrlWebView extends Activity implements View.OnClickListener{
         }
     }
 
-    /*
-     * Activation de l'historique et du bouton retour.
-     * Lors d'un appui sur le bouton retour, l'utilisateur reviens au site
-     * précédent qu'il a consulté, s'il y en a un, grâce aux méthodes
-     * canGoBack() et goBack() de la webview.
+    /**
+     * Enables history and the back button. When the back button is pressed, the user will go
+     * back to the previous site they visited, if there is one, using the WebView's canGoBack()
+     * and goBack() methods.
+     *
+     * @param keyCode The keycode of the pressed key.
+     * @param event The KeyEvent that occurred.
+     * @return True if the back button was handled, false otherwise.
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event){
-        //vérification de l'event Key égal au bouton retour et s'il y a un
-        //historique
+        // Check if the back button was pressed and if there is a history
         if((keyCode == KeyEvent.KEYCODE_BACK) && webview.canGoBack()){
             webview.goBack();
             return true;
         }
 
-        //si il n'y a pas d'historique le bouton est utilisé comme apr défaut
+        // If there is no history, use the default behavior of the back button
         return super.onKeyDown(keyCode, event);
     }
 }
